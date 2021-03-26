@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GoHealth Programming Exercise</title>
+</head>
+<body>
+  <h1>The Bigram Parsing Problem:</h1>
+  <div>
+    <label>These are the assumptions I made: </label>
+    <ol>
+      <li>File is local</li>
+    </ol>
+  </div>
+  <input type="file" id="myFile" onchange = "calculateBigrams(this.files[0])" />
+  <br />
+  <textarea style="width:500px;height: 400px" id="output" readonly></textarea>
+  <script type="text/javascript">
+  async function calculateBigrams(file)
+  {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                console.log(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+
+    var splitArray = await file.text();
+
+    splitArray = splitArray.match(/[\w']+/g); //Just picked words from the text excluding new lines and punctuations. Used this for the possibility of Words can be alphanumeric
+    var bigramArray = [];
+
+    for(i = 0; i < splitArray.length - 1; i++)
+    {
+      bigramArray[i] = splitArray[i] + ' ' + splitArray[i+1];
+      // bigramArray.push(splitArray[i] + ' ' + splitArray[i+1]);
+    }
+
+    bigramArray = bigramArray.reduce(function(obj, bigram){
+      if(!obj[bigram])
+      {
+        obj[bigram] = 1;
+      }
+      else {
+        obj[bigram]++;
+      }
+      return obj;
+    }, {});
+
+    console.log(bigramArray);
+    var output = document.getElementById('output');
+
+    output.textContent = JSON.stringify(bigramArray,null,'\t');
+  }
+
+    // Assumptions:
+    //1. file is local
+    //2. file is in .txt format
+    //3. strip punctuations.
+    //4. make all lower case -- see if it matters
+  </script>
+</body>
+</html>
