@@ -1,8 +1,8 @@
-/* // Check if the file name is passed in the command line
+// Check if the file name is passed in the command line
 if(process.argv.length == 2)
 {
   console.error('File name not found. Command expected to be node goHealth.js [file path]');
-  process.exit(1);
+ // process.exit(1);
 }
 else
 {
@@ -10,9 +10,10 @@ else
   // result.then(function(res){
   //   console.log(res)
   // })
-  console.log(result);
+ // console.log(result);
 }
- */
+
+var newArray=[]
 // Function to calculate Bigrams
 function calculateBigrams(file)
 {
@@ -20,7 +21,7 @@ function calculateBigrams(file)
   var bigramArray = [];
   try
   {
-    fs.readFile(file, 'utf8', function(err, data)
+     fs.readFile(file, 'utf8', function(err, data)
     {
       if (err) throw err;
 
@@ -56,9 +57,10 @@ function calculateBigrams(file)
         return obj;
       }, {}); // Passed {} as initial value
 
-      console.log('Bigrams \n', bigramArray);
+      returnResult(bigramArray); 
       return bigramArray
     });
+   
   }
   catch (e)
   {
@@ -68,4 +70,7 @@ function calculateBigrams(file)
   return bigramArray
 }
 
+function returnResult(result) {
+  console.log("Final result is",result);
+}
 module.exports = calculateBigrams;
