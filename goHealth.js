@@ -4,16 +4,7 @@ if(process.argv.length == 2)
   console.error('File name not found. Command expected to be node goHealth.js [file path]');
  // process.exit(1);
 }
-else
-{
-  let result = calculateBigrams(process.argv[2]);
-  // result.then(function(res){
-  //   console.log(res)
-  // })
- // console.log(result);
-}
 
-var newArray=[]
 // Function to calculate Bigrams
 function calculateBigrams(file)
 {
