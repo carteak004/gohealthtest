@@ -1,4 +1,4 @@
-// Check if the file name is passed in the command line
+/* // Check if the file name is passed in the command line
 if(process.argv.length == 2)
 {
   console.error('File name not found. Command expected to be node goHealth.js [file path]');
@@ -12,7 +12,7 @@ else
   // })
   console.log(result);
 }
-
+ */
 // Function to calculate Bigrams
 function calculateBigrams(file)
 {

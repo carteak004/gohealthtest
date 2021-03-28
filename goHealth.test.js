@@ -1,5 +1,5 @@
 const goHealth = require('./goHealth');
 
 test('testing my shit', () => {
-  expect(calculateBigrams('gohealth.txt')).toBe(3);
+  expect(goHealth('gohealth.txt')).toBe(3);
 });
