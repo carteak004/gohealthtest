@@ -6,22 +6,26 @@ if(process.argv.length == 2)
 }
 else
 {
-  calculateBigrams(process.argv[2]);
+  let result = calculateBigrams(process.argv[2]);
+  // result.then(function(res){
+  //   console.log(res)
+  // })
+  console.log(result);
 }
 
 // Function to calculate Bigrams
-async function calculateBigrams(file)
+function calculateBigrams(file)
 {
   var fs = require('fs'); // To read the contents of the file
+  var bigramArray = [];
   try
   {
-    await fs.readFile(file, 'utf8', function(err, data)
+    fs.readFile(file, 'utf8', function(err, data)
     {
       if (err) throw err;
 
       // Variable declaration
       var dataFromFile = '';
-      var bigramArray = [];
 
       dataFromFile = data.toLowerCase(); // Read the data from text file and store everything in lower case to make parsing easy
 
@@ -53,10 +57,15 @@ async function calculateBigrams(file)
       }, {}); // Passed {} as initial value
 
       console.log('Bigrams \n', bigramArray);
+      return bigramArray
     });
   }
   catch (e)
   {
     console.log('Error', e.stack);
   }
+
+  return bigramArray
 }
+
+module.exports = calculateBigrams;
