@@ -1,4 +1,4 @@
-const goHealth = require('goHealth.js');
+const goHealth = require('.goHealth');
 
 test('testing my shit', () => {
   expect(calculateBigrams('gohealth.txt')).toBe(3);

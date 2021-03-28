@@ -1,4 +1,9 @@
 {
+  "name": "go-Health",
+  "jest": {
+    "verbose": true
+    
+  },
   "scripts": {
     "test": "jest"
   },
