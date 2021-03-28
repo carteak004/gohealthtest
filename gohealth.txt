@@ -1,4 +1,1 @@
-function calculateBigrams(filePath)
-{
-  
-}
+The quick brown fox and the quick blue hare.
