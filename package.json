@@ -2,10 +2,9 @@
   "name": "go-Health",
   "jest": {
     "verbose": true
-    
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest goHealth.test.js"
   },
   "devDependencies": {
     "jest": "^26.6.3"
